@@ -6,21 +6,31 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Biến màu sắc chủ đạo */
+/* 1. THAY ĐỔI BIẾN MÀU SẮC CHỦ ĐẠO: HỒNG SEN & XANH ĐỒNG RUỘNG */
 :root {
-    --pink-sen: #e91e63;
-    --green-leaf: #2e7d32;
-    --dark: #333;
+    --pink-sen: #d43d7d;        /* Màu hồng đậm của cánh sen */
+    --pink-light: #fce4ec;     /* Màu hồng nhạt cánh sen */
+    --green-field: #4caf50;    /* Màu xanh lá lúa non */
+    --green-dark: #1b5e20;     /* Màu xanh rừng tràm */
+    --gold-rice: #ffc107;      /* Màu vàng lúa chín */
+    --dark: #2d3436;
+    --light-bg: #f1f8e9;       /* Màu nền xanh lá cực nhạt tạo cảm giác mát mẻ */
 }
 
-/* Header & Nav */
+/* Cập nhật nền toàn trang */
+body {
+    background-color: var(--light-bg);
+}
+
+/* 2. HEADER & NAV: SỬ DỤNG TÔNG TRẮNG HỒNG */
 header {
     background: #fff;
-    padding: 20px 10%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 15px 10%;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.1); /* Shadow màu xanh nhẹ */
     position: sticky;
     top: 0;
     z-index: 1000;
+    border-bottom: 3px solid var(--pink-sen); /* Viền hồng sen đặc trưng */
 }
 
 .navbar {
@@ -30,9 +40,9 @@ header {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
-    color: var(--green-leaf);
+    color: var(--green-dark);
 }
 
 .logo span { color: var(--pink-sen); }
@@ -40,22 +50,27 @@ header {
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
+    gap: 25px;
 }
 
 .nav-links a {
     text-decoration: none;
     color: var(--dark);
-    font-weight: 500;
+    font-weight: 600;
     transition: 0.3s;
+    text-transform: uppercase;
+    font-size: 14px;
 }
 
-.nav-links a:hover { color: var(--pink-sen); }
+.nav-links a:hover { 
+    color: var(--pink-sen); 
+}
 
-/* Hero Section */
+/* 3. HERO SECTION: LÀM NỔI BẬT NỘI DUNG TRÊN NỀN ẢNH */
 .hero {
-    height: 80vh;
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+    height: 75vh;
+    /* Overlay chuyển màu từ xanh sang hồng nhẹ */
+    background: linear-gradient(rgba(27, 94, 32, 0.4), rgba(212, 61, 125, 0.3)), 
                 url('https://thanhnien.mediacdn.vn/Uploaded/hongky-qc/2022_05_16/1-2-5899.jpg') center/cover;
     display: flex;
     align-items: center;
@@ -64,53 +79,94 @@ header {
     color: white;
 }
 
-.hero h1 { font-size: 3rem; margin-bottom: 10px; }
+.hero h1 { 
+    font-size: 3.5rem; 
+    margin-bottom: 15px; 
+    text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+}
 
 .cta-button {
     display: inline-block;
-    margin-top: 20px;
-    padding: 12px 30px;
+    margin-top: 25px;
+    padding: 14px 40px;
     background: var(--pink-sen);
     color: white;
     text-decoration: none;
-    border-radius: 25px;
-    transition: 0.3s;
+    border-radius: 50px; /* Bo tròn mềm mại như cánh hoa */
+    transition: 0.4s;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(212, 61, 125, 0.4);
 }
 
-.cta-button:hover { background: #c2185b; transform: scale(1.05); }
+.cta-button:hover { 
+    background: var(--green-dark); 
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(27, 94, 32, 0.4);
+}
 
-/* Grid cho các thẻ điểm đến */
+/* 4. ĐIỂM ĐẾN NỔI BẬT: THIẾT KẾ CARD MỀM MẠI */
+.section-title { 
+    text-align: center; 
+    margin-top: 60px; 
+    color: var(--green-dark); 
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Gạch chân trang trí hình cánh hoa */
+.section-title::after {
+    content: '🌸';
+    position: absolute;
+bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+}
+
 .container {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 50px 10%;
+    gap: 35px;
+    padding: 40px 10% 80px;
     flex-wrap: wrap;
 }
 
-.section-title { text-align: center; margin-top: 50px; color: var(--green-leaf); }
-
 .card {
-    width: 300px;
-    border: 1px solid #eee;
-    padding: 15px;
-    border-radius: 10px;
+    width: 320px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 20px; /* Bo góc nhiều hơn tạo sự nhẹ nhàng */
     text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid var(--pink-light);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--green-field);
+    box-shadow: 0 15px 35px rgba(76, 175, 80, 0.15);
 }
 
 .card-img {
-    width: 100%;       /* Ảnh rộng bằng chiều rộng của thẻ card */
-    height: 180px;     /* Chiều cao cố định để các card đều nhau */
-    object-fit: cover; /* Quan trọng: Giúp ảnh tự cắt cúp để vừa khung mà không bị méo */
-    border-radius: 8px;
-    margin-bottom: 15px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    margin-bottom: 20px;
 }
-/* Footer Styles */
+
+.card h3 {
+    color: var(--green-dark);
+    margin-bottom: 10px;
+}
+
+/* 5. FOOTER: MÀU XANH TRÀM VÀ ĐIỂM NHẤN HỒNG SEN */
 .main-footer {
-    background-color: #1b5e20; /* Màu xanh lá đậm đại diện cho rừng tràm */
+    background-color: var(--green-dark); 
     color: #ffffff;
     padding: 60px 0 20px 0;
-    margin-top: 50px;
 }
 
 .footer-container {
@@ -123,87 +179,25 @@ header {
     gap: 30px;
 }
 
-.footer-col {
-    flex: 1;
-    min-width: 250px;
-}
-
-.footer-col h3 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
 .footer-col h3 span {
-    color: #f48fb1; /* Màu hồng sen nhạt cho logo ở footer */
+    color: var(--pink-light); 
 }
 
-.footer-col h4 {
-    font-size: 18px;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-}
-
-/* Đường gạch chân trang trí dưới tiêu đề cột */
 .footer-col h4::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 50px;
-    height: 2px;
     background-color: var(--pink-sen);
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col ul li {
-    margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-    color: #ccc;
-    text-decoration: none;
-    transition: 0.3s;
 }
 
 .footer-col ul li a:hover {
-    color: #fff;
-    padding-left: 5px;
-}
-
-/* Form đăng ký */
-.subscribe-form {
-    display: flex;
-    margin-top: 15px;
-}
-
-.subscribe-form input {
-    padding: 10px;
-    border: none;
-    border-radius: 4px 0 0 4px;
-    outline: none;
-    width: 70%;
+    color: var(--pink-light);
+    padding-left: 8px;
 }
 
 .subscribe-form button {
-    padding: 10px;
-    border: none;
     background-color: var(--pink-sen);
-    color: white;
-    border-radius: 0 4px 4px 0;
-    cursor: pointer;
 }
 
-/* Phần bản quyền dưới cùng */
 .footer-bottom {
-    text-align: center;
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    font-size: 14px;
-    color: #aaa;
+    background: rgba(0,0,0,0.2);
+    margin-top: 40px;
+    padding: 20px 0;
 }
